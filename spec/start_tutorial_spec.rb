@@ -41,5 +41,27 @@ RSpec.describe 'start tutorial' do
       }
     )
   end
+
+  it 'has a further challenge 1' do
+    header 'Accept', 'application/json'
+    get '/challenge/1'
+    expect(JSON.parse(last_response.body)).to include(
+      'data' => {
+        'type' => 'challenge',
+        'id' => '1',
+        'attributes' => {
+          "text" => "provide an endpoint that responds with a 200 OK",
+          "hint" => "pass your endpoint `curl --data {'endpoint'='http://localhost:3000'} ..."
+        }
+      },
+    )
+    expect(JSON.parse(last_response.body)).to include(
+      'links' => {
+        'prev' => 'http://example.org',
+        'self' => 'http://example.org/challenge/1',
+        'next' => 'http://example.org/challenge/2'
+      }
+    )
+  end
 end
 

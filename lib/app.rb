@@ -24,3 +24,21 @@ get '/' do
   EOF
 end
 
+get '/challenge/:id' do
+  {
+    'data' => {
+      'type' => 'challenge',
+      'id' => '1',
+      'attributes' => {
+        'text' => 'provide an endpoint that responds with a 200 OK',
+        'hint' => "pass your endpoint `curl --data {'endpoint'='http://localhost:3000'} ..."
+      }
+    },
+    'links' => {
+      'prev' => 'http://example.org',
+      'self' => 'http://example.org/challenge/1',
+      'next' => 'http://example.org/challenge/2'
+    }
+  }.to_json
+end
+
