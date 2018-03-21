@@ -23,9 +23,20 @@ To run
 
     $ curl http://localhost:4567
     Hi and welcome to the API tutorial
+    ...
+
+    $ curl -H Accept:application/json http://localhost:4567
+    {"message":"Successfully completed challenge 0, hit API with content-type 'application/json'"}
+
+    $ curl -H Accept:application/json http://localhost:4567 | jq
+    {
+      "message": "Successfully completed challenge 0, hit API with content-type 'application/json'"
+    }
     ```
 
 ## TODO
 
-- [ ] print out a message when sinatra starts as to what to do next, curl the endpoint
+- [ ] print out a message when sinatra starts as to what to do next, curl the
+  endpoint
+- [ ] auto reload sinatra with changes
 
