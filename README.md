@@ -14,3 +14,18 @@ A HTTP web based API interactive workshop using simple cURL commands to:
     - CSRF form protection
   - etc
 
+## Progress
+
+To run
+
+    ```
+    $ ruby lib/app.rb
+
+    $ curl http://localhost:4567
+    Hi and welcome to the API tutorial
+    ```
+
+## TODO
+
+- [ ] print out a message when sinatra starts as to what to do next, curl the endpoint
+
