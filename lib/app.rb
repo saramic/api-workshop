@@ -4,7 +4,11 @@ get '/' do
   if !request.accept?('text/html')
     headers 'Content-Type' => 'application/json'
     body({
-      message: "Successfully completed challenge 0, hit API with content-type 'application/json'"
+      message: "Successfully completed challenge 0, hit API with content-type 'application/json'",
+      links: {
+        self: "#{request.base_url}",
+        next: "#{request.base_url}/challenge/1"
+      }
     }.to_json)
     return
   end

@@ -39,4 +39,5 @@ To run
 - [ ] print out a message when sinatra starts as to what to do next, curl the
   endpoint
 - [ ] auto reload sinatra with changes
+- [ ] 404 application/json handler needs to be added - currently 404 in HTML
 

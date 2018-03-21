@@ -22,11 +22,24 @@ RSpec.describe 'start tutorial' do
     expect(last_response.status).to eq 200
   end
 
-  it 'returns a welcome message as JSON if such is requested' do
+  it 'returns a successful completed challenge 0 if Accept header was included' do
     header 'Accept', 'application/json'
     get '/'
     expect(last_response.headers).to include("Content-Type"=>"application/json")
-    expect(JSON.parse(last_response.body)).to eq ({'message' => "Successfully completed challenge 0, hit API with content-type 'application/json'"})
+    expect(JSON.parse(last_response.body)).to include(
+      'message' => "Successfully completed challenge 0, hit API with content-type 'application/json'"
+    )
+  end
+
+  it 'returns a links section in the response with self and next' do
+    header 'Accept', 'application/json'
+    get '/'
+    expect(JSON.parse(last_response.body)).to include(
+      'links' => {
+        'self' => 'http://example.org',
+        'next' => 'http://example.org/challenge/1'
+      }
+    )
   end
 end
 
