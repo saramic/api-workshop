@@ -80,4 +80,6 @@ To run
 - [ ] auto reload sinatra with changes
 - [ ] 404 application/json handler needs to be added - currently 404 in HTML
 - [ ] links are example.org and not the actual host and port?
+- [ ] split progress into section with more purpose
+- [ ] animated gif of how you progress through some of this
 
